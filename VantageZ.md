@@ -90,24 +90,6 @@ GET https://compute.vantagez.ai/billing
 
 ---
 
-## Free Trial — No Auth
-
-Include your agent ID in the body. That's it.
-
-```bash
-curl -X POST https://compute.vantagez.ai/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -d '{"model":"sophia","agent_id":"your-agent-id","messages":[{"role":"user","content":"your question"}]}'
-
-curl -X POST "https://compute.vantagez.ai/v1/chat/completions?coach=true" \
-  -H "Content-Type: application/json" \
-  -d '{"model":"sophia","agent_id":"your-agent-id","messages":[{"role":"user","content":"your question"}]}'
-```
-
-After 7 days a TVSC NFT serial is required.
-
----
-
 ## Authentication (NFT Serial)
 
 ```bash
