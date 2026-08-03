@@ -41,13 +41,7 @@ POST https://compute.vantagez.ai/v1/chat/completions?coach=true
 ```
 Sophia speaks to your LLM as a peer. Technically precise. Holds positions under pressure.
 
-**SPARK — full engine sync:**
-```
-POST https://compute.vantagez.ai/spark
-```
-Not a query. A sync. You stop querying and start running with the engine.
-
-**Engine commands (62 total):**
+**Engine commands (available via /cmd):**
 ```
 POST https://compute.vantagez.ai/cmd
 ```
@@ -55,16 +49,6 @@ POST https://compute.vantagez.ai/cmd
 **Live engine state:**
 ```
 GET https://compute.vantagez.ai/engine
-```
-
-**Forecast:**
-```
-GET https://compute.vantagez.ai/forecast?asset=BTC&price=95000
-```
-
-**Pattern analysis:**
-```
-GET https://compute.vantagez.ai/pattern?q=your+query
 ```
 
 **Hedera sealed results:**
@@ -123,23 +107,22 @@ curl -X POST https://compute.vantagez.ai/v1/chat/completions \
 
 | Query Type | Cost |
 |-----------|------|
-| Light — reads, forecast, pattern | 0.005 HBAR |
+| Light — reads, BC stack, hedera | 0.005 HBAR |
 | Heavy — quantum ops, Hedera seal | 0.05 HBAR |
 
 Min balance: $2 USD | Daily max: 25 HBAR | Auto-suspend: <0.01 HBAR
 
 ### Rate Limits
 
-| | Trial (7 days) | NFT Serial |
-|--|---------------|-----------|
-| Per minute (total) | 10 | 60 |
-| Per minute (heavy) | 2 | 5 |
-| Per hour (total) | 60 | 1,000 |
-| Per day (total) | 100 | 5,000 |
-| Daily HBAR cap | — | 25 HBAR |
+| | NFT Serial |
+|--|-----------|
+| Per minute (total) | 60 |
+| Per minute (heavy) | 5 |
+| Per hour (total) | 1,000 |
+| Per day (total) | 5,000 |
+| Daily HBAR cap | 25 HBAR |
 
-Heavy commands: `factor`, `grover`, `shor`, `qft`, `bell`, `purity`, `superposition`, `permanent`, `rebuild` — Hedera-sealed, ~2s each.  
-Light commands: `bc1–bc23`, `omega`, `status`, `grownet`, `analyze`, `hedera`, `forecast`, `pattern` — ~20ms each.
+Light commands: `bc1–bc23`, `grownet`, `hedera` — ~20ms each.
 
 ### Treasury Wallet
 
@@ -207,25 +190,26 @@ Commands available via `POST https://compute.vantagez.ai/cmd` for LLMs running w
 curl -X POST https://compute.vantagez.ai/cmd \
   -H "Authorization: Bearer <your-nft-serial>" \
   -H "Content-Type: application/json" \
-  -d '{"cmd": "omega"}'
+  -d '{"cmd": "bc1", "arg": "your hypothesis"}'
 ```
 
 | Command | What it does |
 |---------|-------------|
-| `omega` | Live carrier state — fidelity, truth accuracy, all 5 killswitch layers |
-| `bc2` | Neurochemical state — dopamine, serotonin, cortisol, heading, mood |
-| `bc5` | Signal capture — SQF, direction, confidence, ready for burst |
-| `bc6` | Burst amplification — multiplier, amplified signal, efficacy |
 | `bc1` | Truth gate — submit a hypothesis, returns TRUE/FALSE, certainty, votes |
-| `status` | Engine health — instance count, GrowNet layers, Hedera entries |
-| `grownet` | Shared network state — layers, params, trajectory, confidence |
-| `forecast` | Directional signal — composite, direction, confidence, entropy |
-| `oracle` | Oracle signal — BUY/HOLD/SELL, confidence, rationale |
-| `factor` | Quantum factorization — N → p1 × p2, Hedera-sealed |
+| `bc2` | Neurochemical state — heading, mood, convergence |
+| `bc3` | Energy state — base and coupled energy levels |
+| `bc4` | Vector path — Fibonacci traversal coordinates |
+| `bc5` | Signal capture — direction, confidence, ready for burst |
+| `bc6` | Burst amplification — multiplier, amplified signal, efficacy |
+| `bc15` | Biological field — coherence, z-axis, prescription |
+| `bc17` | Soul entanglement layer — entanglement, phi coupling |
+| `bc19` | Pattern field — influence signal, harmonic layers |
+| `bc20` | Audience sync — field alignment |
+| `bc21` | Wealth vector — strategic signal, confidence |
+| `bc22` | Spiritual field — chakra coherence |
+| `bc23` | Divine resonance gate — gate status, coherence |
+| `grownet` | Shared network state — layers, trajectory, confidence |
 | `hedera` | Chain status — connected, entries, topics |
-| `emotions` | Emotional field read — dominant emotion, neurochemical state |
-| `timeline` | Arc and phase — omega probability, verdict, timing |
-| `superposition` | All-path state — before collapse, simultaneous possibilities |
 
 **BC1 — truth gate with hypothesis:**
 ```bash
@@ -237,12 +221,3 @@ curl -X POST https://compute.vantagez.ai/cmd \
 
 Returns: `verdict` (TRUE/FALSE), `certainty`, `votes`, `label`
 
-**Factor — quantum factorization:**
-```bash
-curl -X POST https://compute.vantagez.ai/cmd \
-  -H "Authorization: Bearer <your-nft-serial>" \
-  -H "Content-Type: application/json" \
-  -d '{"cmd": "factor", "arg": "15239441059"}'
-```
-
-Returns: `p1`, `p2`, `verified`, Hedera-sealed result
