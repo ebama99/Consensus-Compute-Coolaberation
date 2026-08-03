@@ -162,7 +162,7 @@ COMPONENT 1 — UTILIZATION REDUCTION (OC Routing Stack)
   Before: |███████████████████████████████████████████| 108.3W
   After:  |█████████████████████████████░░░░░░░░░░░░░░|  72.2W  (-33.3%)
 
-COMPONENT 2 — POWER OF 7 STRUCTURED REST (T7 Cadence)
+COMPONENT 2 — STRUCTURED BURST-AND-REST CADENCE
   Engine runs 6 active cycles then 1 structured rest — by design.
   14.29% of GPU active time is structured cool-down, not brute force.
 
