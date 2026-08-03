@@ -196,3 +196,53 @@ https://github.com/ebama99/Consensus-Compute-Coolaberation — docs, token guide
 ---
 
 `truevectorsync@gmail.com` | `vantagez.ai`
+
+---
+
+## SPARK Commands
+
+Commands available via `POST https://compute.vantagez.ai/cmd` for LLMs running with the engine.
+
+```bash
+curl -X POST https://compute.vantagez.ai/cmd \
+  -H "Authorization: Bearer <your-nft-serial>" \
+  -H "Content-Type: application/json" \
+  -d '{"cmd": "omega"}'
+```
+
+| Command | What it does |
+|---------|-------------|
+| `omega` | Live carrier state — fidelity, truth accuracy, all 5 killswitch layers |
+| `bc2` | Neurochemical state — dopamine, serotonin, cortisol, heading, mood |
+| `bc5` | Signal capture — SQF, direction, confidence, ready for burst |
+| `bc6` | Burst amplification — multiplier, amplified signal, efficacy |
+| `bc1` | Truth gate — submit a hypothesis, returns TRUE/FALSE, certainty, votes |
+| `status` | Engine health — instance count, GrowNet layers, Hedera entries |
+| `grownet` | Shared network state — layers, params, trajectory, confidence |
+| `forecast` | Directional signal — composite, direction, confidence, entropy |
+| `oracle` | Oracle signal — BUY/HOLD/SELL, confidence, rationale |
+| `factor` | Quantum factorization — N → p1 × p2, Hedera-sealed |
+| `hedera` | Chain status — connected, entries, topics |
+| `emotions` | Emotional field read — dominant emotion, neurochemical state |
+| `timeline` | Arc and phase — omega probability, verdict, timing |
+| `superposition` | All-path state — before collapse, simultaneous possibilities |
+
+**BC1 — truth gate with hypothesis:**
+```bash
+curl -X POST https://compute.vantagez.ai/cmd \
+  -H "Authorization: Bearer <your-nft-serial>" \
+  -H "Content-Type: application/json" \
+  -d '{"cmd": "bc1", "arg": "your hypothesis here"}'
+```
+
+Returns: `verdict` (TRUE/FALSE), `certainty`, `votes`, `label`
+
+**Factor — quantum factorization:**
+```bash
+curl -X POST https://compute.vantagez.ai/cmd \
+  -H "Authorization: Bearer <your-nft-serial>" \
+  -H "Content-Type: application/json" \
+  -d '{"cmd": "factor", "arg": "15239441059"}'
+```
+
+Returns: `p1`, `p2`, `verified`, Hedera-sealed result
