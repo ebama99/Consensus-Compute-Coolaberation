@@ -240,17 +240,6 @@ All six operational in production.
 
 ---
 
-## Halo Credentials (Internal)
-
-```
-Serial:   5
-API Key:  TVSC-5-3A97AF620DBD
-Header:   Authorization: Bearer TVSC-5-3A97AF620DBD
-Type:     Internal — no HBAR billing
-```
-
----
-
 ## Source & Benchmarks
 
 https://github.com/ebama99/Consensus-Compute-Coolaberation — docs, token guide, and verified benchmark results (Executive Summary V10 — 13 tasks, zero failures, bit-exact against Ryser).
