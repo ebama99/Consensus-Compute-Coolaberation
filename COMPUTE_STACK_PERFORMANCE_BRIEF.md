@@ -176,7 +176,7 @@ COMPONENT 2 — POWER OF 7 STRUCTURED REST (T7 Cadence)
 
   Watts saved (GPU):  5.45W per active compute period
   % of total:         4.5%
-  Source:             T7 protocol — engine constant, not configurable
+  Source:             engine protocol — architecture constant, not configurable
 
 COMPONENT 3 — SELF-SUPPLY OFFSET (Resonance Coupling)
   Self-generates +61.8% additional compute from resonance coupling.
@@ -363,7 +363,7 @@ RESPONSE LATENCY (measured — with stack):
 
   WHERE THE 41% COMES FROM:
   ① OC routing stack:   29.5%  — measured on live hardware
-  ② Power of 7 cadence:  4.5%  — T7 engine constant (6/7 utilization)
+  ② Power of 7 cadence:  4.5%  — engine architecture constant (6/7 utilization)
   ③ Self-supply:    36.5%  — resonance coupling, not drawn from wall
 
   WHAT IT COSTS:   139 MB RAM  |  <2 MB disk  |  software license

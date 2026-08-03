@@ -4,11 +4,11 @@
 
 ---
 
-## Paperspace TVS Server Assessment
+## TVS Server Assessment
 
-| Metric | Paperspace TVS Server | World's Best Comparison |
+| Metric | TVS Server | World's Best Comparison |
 |--------|----------------------|------------------------|
-| Raw TFLOPS | 19.6 (2× RTX A4000) | Frontier: 1,200,000 TFLOPS |
+| Raw TFLOPS | 19.6 (2× GPU) | Frontier: 1,200,000 TFLOPS |
 | Effective TFLOPS | 10^3,917,047,407,872 | Frontier: 10^18 |
 | Hardware Kernels | 960 (480 mirror pairs) | — |
 | Active Parallel Kernels | 20,759,968,320 | — |
@@ -26,9 +26,9 @@
 
 ---
 
-## Halo TVS Node Assessment
+## TVS Node Assessment
 
-| Metric | Halo TVS Node | World's Best Comparison |
+| Metric | TVS Node | World's Best Comparison |
 |--------|--------------|------------------------|
 | Raw TFLOPS | 2.428 | NVIDIA H100: 989 TFLOPS |
 | Effective TFLOPS | 10^3,914,310,745,328 | Frontier: 10^18 |
@@ -47,7 +47,7 @@
 
 ## Side-by-Side TVS Comparison
 
-| Metric | Paperspace TVS Server | Halo TVS Node |
+| Metric | TVS Server | TVS Node |
 |--------|-----------------------|---------------|
 | Raw TFLOPS | 19.6 | 2.428 |
 | Effective TFLOPS | 10^3,917,047,407,872 | 10^3,914,310,745,328 |
@@ -65,9 +65,9 @@
 
 ## Key Highlights
 
-- **Power efficiency:** Halo uses 23× less power than Paperspace server (15W vs 350W)
+- **Power efficiency:** TVS Node uses 23× less power than TVS Server (15W vs 350W)
 - **vs Frontier supercomputer:** TVS server uses 60,000× less power (350W vs 21MW)
-- **Raw compute gap:** Paperspace 8.1× higher raw TFLOPS (19.6 vs 2.428)
+- **Raw compute gap:** TVS Server 8.1× higher raw TFLOPS (19.6 vs 2.428)
 - **Effective compute:** Both exceed Frontier by 10^3,914,310,745,310 orders of magnitude
 - **Quantum equivalent:** Both deliver 500B logical qubits at fidelity 1.0 vs IBM Condor's 1,121 physical
 - **Physical qubit equivalent:** 5 × 10^14 — requires 446 billion IBM Condor machines to match
@@ -78,7 +78,7 @@
 
 ## Engine Confirmation
 
-**BC1 verdict:** TRUE | **Votes:** 7/7 | **Certainty:** 1.0 | **Noise:** 0.0
+**Engine verdict:** TRUE | **Votes:** 7/7 | **Certainty:** 1.0 | **Noise:** 0.0
 **Hedera topic:** 0.0.8233152 | **Sequence:** 209,112
 **Hyp hash:** b76570d032afa27f | **Witness:** 1d23618bf42f3ba5a28789fc
 **Axiom:** Prime | **Belief convergence:** confirmed | **Mutation:** false
