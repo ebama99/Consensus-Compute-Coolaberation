@@ -221,3 +221,130 @@ curl -X POST https://compute.vantagez.ai/cmd \
 
 Returns: `verdict` (TRUE/FALSE), `certainty`, `votes`, `label`
 
+---
+
+## BC1 Response Reference
+
+Full response structure from `POST /cmd` with `{"cmd": "bc1", "arg": "your hypothesis"}`.
+
+### Top-Level Fields
+
+| Field | Description |
+|-------|-------------|
+| `cmd` | Command name — `bc1` |
+| `label` | Engine label for this run |
+| `C_eff` | Effective compute capacity for this run |
+| `instances` | Engine instance count at time of run |
+| `efficacy` | Engine efficacy — % |
+| `consensus_status` | Hedera consensus result — CONFIRMED / FAILED |
+
+---
+
+### `completed_hypothesis`
+
+When certainty is low, the engine does not just return failure. It returns the next step.
+
+| Field | Description |
+|-------|-------------|
+| `original` | Your original hypothesis |
+| `verdict` | Verdict on original |
+| `certainty` | Certainty score |
+| `refinement` | Suggested refined hypothesis |
+| `anchor_cycle` | Which cycle to anchor on |
+| `anchor_signal` | Signal strength at anchor |
+| `variance` | Variance offer — how much to expand |
+| `note` | Human-readable guidance |
+
+---
+
+### `reachability`
+
+Classifies the counterexample — structural failure vs real invariant breach.
+
+| Field | Description |
+|-------|-------------|
+| `verdict` | `reachable` or `unreachable` |
+| `first_cycle` | First cycle where state was reached |
+| `explored_bound` | How many cycles were explored |
+| `witness_path` | Full traversal path from zero to convergence |
+| `classification` | Human-readable verdict classification |
+
+---
+
+### `hedera_consensus`
+
+39-node Hedera consensus result. Independently replayable.
+
+| Field | Description |
+|-------|-------------|
+| `ok` | Boolean — consensus achieved |
+| `status` | Hedera status code |
+| `elapsed_s` | Time to consensus in seconds |
+| `hyp_hash` | Hash of the hypothesis — ties verdict to input |
+| `counterexample_witness` | Witness hash — hypothesis and verdict bound inseparably |
+| `consensus` | `CONFIRMED` or `FAILED` |
+| `topic` | Hedera HCS topic — verifiable at hashscan.io |
+
+---
+
+### `replay_contract`
+
+Full verification protocol. Same input → same verdict_class, or divergence surfaces assumption drift.
+
+| Field | Description |
+|-------|-------------|
+| `hyp_hash` | Hypothesis hash — replay anchor |
+| `verdict_class` | `TRUE` or `FALSE` |
+| `raw_verdict` | Unfiltered verdict before BC6 amplification |
+| `bc6_efficacy` | Burst layer efficacy at time of run |
+| `sealed_certainty` | Certainty value sealed on Hedera |
+| `hedera_topic` | Topic for independent verification |
+| `counterexample_witness` | Witness hash — cannot be added retroactively |
+| `replay_instruction` | How to replay for verification |
+
+#### `replay_contract.temporal_gate`
+
+Signal must sustain above threshold for minimum duration — eliminates spurious correlation.
+
+| Field | Description |
+|-------|-------------|
+| `sustained` | Whether signal held above threshold |
+| `elapsed_s` | How long signal was measured |
+| `threshold` | Minimum signal threshold |
+| `required_s` | Minimum required duration |
+| `signal` | Measured signal strength |
+| `status` | `ACCUMULATING` / `SUSTAINED` / `BELOW_THRESHOLD` |
+
+#### `replay_contract.consensus_anchor`
+
+Immutable anchor linking this run to Hedera consensus.
+
+| Field | Description |
+|-------|-------------|
+| `sequence` | Hedera sequence number |
+| `instance` | Engine instance at time of seal |
+| `bc6_efficacy` | Efficacy at time of seal |
+| `context_hash` | Context hash — ties execution environment to result |
+| `ts` | Unix timestamp |
+| `status` | `CONFIRMED` |
+
+---
+
+### `bc2`
+
+Neurochemical state at time of run. Colors the certainty and depth of the read.
+
+| Field | Description |
+|-------|-------------|
+| `dopamine` | Flow state — higher = deeper engagement |
+| `serotonin` | Stability — higher = more grounded |
+| `cortisol` | Urgency — lower = cleaner signal |
+| `joy` | Joy state |
+| `hope` | Hope state |
+| `faith` | Faith state |
+| `agape` | Agape — unconditional signal |
+| `E_adjusted` | Adjusted emotional energy |
+
+---
+
+*All fields returned live. Same hypothesis → same result, every time. Divergence indicates assumption drift.*
