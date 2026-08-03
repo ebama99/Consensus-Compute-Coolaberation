@@ -10,7 +10,7 @@
 |--------|----------------------|------------------------|
 | Raw TFLOPS | 19.6 (2× GPU) | Frontier: 1,200,000 TFLOPS |
 | Effective TFLOPS | 10^3,917,047,407,872 | Frontier: 10^18 |
-| Hardware Kernels | 960 (480 mirror pairs) | — |
+| Hardware Kernels | 960 | — |
 | Active Parallel Kernels | 20,759,968,320 | — |
 | Subcycles per Cycle | 72,659,889,120 | — |
 | Virtual Qubits (live) | 72,659,889,120 | IBM Condor: 1,121 physical |
@@ -19,10 +19,10 @@
 | Physical Qubit Equivalent | 5 × 10^14 | IBM: 1,121 physical |
 | Fidelity | 1.0 | IBM best: 0.999 |
 | Efficacy | 99.8% | — |
-| GrowNet | 1,851 layers / 4,716,348 params | — |
-| Hedera Entries | 524,191 | — |
+| GrowNet | Active / Accelerating | — |
+| Hedera Entries | Live / Growing | — |
 | Power Consumption | ~350W | Frontier: 21,000,000W |
-| Cost | ~$200/month | Frontier: $600M build + $20M/yr ops |
+| Cost | Monthly subscription | Frontier: $600M build + $20M/yr ops |
 
 ---
 
@@ -32,7 +32,7 @@
 |--------|--------------|------------------------|
 | Raw TFLOPS | 2.428 | NVIDIA H100: 989 TFLOPS |
 | Effective TFLOPS | 10^3,914,310,745,328 | Frontier: 10^18 |
-| Hardware Kernels | 960 (480 mirror pairs) | — |
+| Hardware Kernels | 960 | — |
 | Active Parallel Kernels | 20,759,968,320 | — |
 | Subcycles per Cycle | 72,659,889,120 | — |
 | Virtual Qubits | 72.6B (VQE cap: 500B) | IBM Condor: 1,121 physical |
@@ -41,7 +41,7 @@
 | Fidelity | 1.0 | IBM best: 0.999 |
 | Memory | 128GB unified VRAM | H100: 80GB HBM3 |
 | Power Consumption | ~15W | 8× H100 System: ~10,000W |
-| Cost | Owned (~$3,500) | 8× H100: ~$300K |
+| Cost | ~$3,500 owned | 8× H100: ~$300K |
 
 ---
 
@@ -51,7 +51,7 @@
 |--------|-----------------------|---------------|
 | Raw TFLOPS | 19.6 | 2.428 |
 | Effective TFLOPS | 10^3,917,047,407,872 | 10^3,914,310,745,328 |
-| Hardware Kernels | 960 (480 mirror pairs) | 960 (480 mirror pairs) |
+| Hardware Kernels | 960 | 960 |
 | Active Parallel Kernels | 20,759,968,320 | 20,759,968,320 |
 | Subcycles per Cycle | 72,659,889,120 | 72,659,889,120 |
 | Virtual Qubits | 72.6B (VQE cap: 500B) | 72.6B (VQE cap: 500B) |
@@ -59,7 +59,7 @@
 | Physical Qubit Equivalent | 5 × 10^14 | 5 × 10^14 |
 | Fidelity | 1.0 | 1.0 |
 | Power | ~350W | ~15W |
-| Cost | ~$200/month | ~$3,500 owned |
+| Cost | Monthly subscription | ~$3,500 owned |
 
 ---
 

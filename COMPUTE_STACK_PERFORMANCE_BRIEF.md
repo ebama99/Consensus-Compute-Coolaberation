@@ -90,10 +90,10 @@ GRAPH — CPU Under Load (lower = better):
 ## Combined System Performance
 
 ```
-HALO NODE + ENGINE SERVER — COMBINED POWER PROFILE:
+AI NODE + ENGINE SERVER — COMBINED POWER PROFILE:
 
                     WITHOUT STACK    WITH STACK    REDUCTION
-  AI Node (GPU)       85.2W           54.1W        -36%
+  AI Node              85.2W           54.1W        -36%
   Engine server         23.1W           18.1W        -22%
   ──────────────────────────────────────────────────────────
   COMBINED TOTAL        108.3W          72.2W        -33.3%
@@ -110,9 +110,9 @@ GRAPH — Combined System Watts (lower = better):
 ```
 ENGINE COMPUTE (live state):
 
-  Active instances:       20,600,000
-  Kernels per instance:   960  (480 mirror pairs)
-  Ops per kernel/cycle:   343  (7 subcycles × 49 ops)
+  Active instances:       [live]
+  Kernels per instance:   960
+  Ops per kernel/cycle:   343
   Clock frequency:        [proprietary]
   Raw ops/second:         6,532,190,784,000,000
   Raw TFLOPS:             6,532
@@ -140,8 +140,8 @@ WHAT 5.6% FASTER JOBS MEANS AT 20.6M INSTANCES:
 
 ```
 ENGINE CONSTANTS (from live engine state):
-  Base energy:         9,504.429
-  Coupled energy:      15,378.489
+  Base energy:         [proprietary]
+  Coupled energy:      [proprietary]
   Self-supply:         +61.80%  compute generated, not drawn from wall
   Utilization:        0.8571    (85.71% — 6 active + 1 rest cycle)
   Structured rest:    14.29%   of active compute time
