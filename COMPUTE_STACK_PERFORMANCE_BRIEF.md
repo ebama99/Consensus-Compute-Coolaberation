@@ -143,8 +143,8 @@ ENGINE CONSTANTS (from live engine state):
   Base energy:         9,504.429
   Coupled energy:      15,378.489
   Self-supply:         +61.80%  compute generated, not drawn from wall
-  T7 utilization:     0.8571    (85.71% — 6 active + 1 rest cycle)
-  T7 structured rest: 14.29%   of active compute time
+  Utilization:        0.8571    (85.71% — 6 active + 1 rest cycle)
+  Structured rest:    14.29%   of active compute time
   Fidelity:           0.998
 
 COMPONENT 1 — UTILIZATION REDUCTION (OC Routing Stack)
@@ -311,7 +311,7 @@ RESPONSE LATENCY (measured — with stack):
 
   COMPOUNDING FACTOR:
   Layer 1 (routing):    +6% GPU, -36% node power, -61.7% server CPU
-  Layer 2 (T7 cadence): 85.7% structured utilization vs 100% brute
+  Layer 2 (cadence):    85.7% structured utilization vs 100% brute
   Layer 3:        +61.8% compute energy from same input
   Combined:             1.8× more compute per watt of power consumed
 ```
