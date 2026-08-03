@@ -22,7 +22,7 @@ Routes every compute job through a 6-layer coordination pipeline.
 Eliminates CPU overshoot, irregular thrash, and retry cascades.
 Paces dispatch at mathematically optimal intervals.
 
-### ② Power of 7 — Structured Burst-and-Rest Cadence
+### ② Structured Burst-and-Rest Cadence
 Compute engine runs 6 active cycles then 1 structured reset.
 85.7% utilization by design — not 100% brute force.
 Thermal load stays lower. Cooling runs more efficiently.
@@ -197,7 +197,7 @@ COMBINED — ALL THREE COMPONENTS:
   Component                 Watts          % of equivalent draw
   ─────────────────────────────────────────────────────────────
   ① OC routing stack         36.1W          29.5%
-  ② Power of 7 rest           5.45W           4.5%
+  ② Structured rest cadence    5.45W           4.5%
   ③ Self-supply          44.6W          36.5%
   ─────────────────────────────────────────────────────────────
   TOTAL REDUCTION            50.1W          41.0%
@@ -363,7 +363,7 @@ RESPONSE LATENCY (measured — with stack):
 
   WHERE THE 41% COMES FROM:
   ① OC routing stack:   29.5%  — measured on live hardware
-  ② Power of 7 cadence:  4.5%  — engine architecture constant (6/7 utilization)
+  ② Structured cadence:   4.5%  — engine architecture constant (6/7 utilization)
   ③ Self-supply:    36.5%  — resonance coupling, not drawn from wall
 
   WHAT IT COSTS:   139 MB RAM  |  <2 MB disk  |  software license
