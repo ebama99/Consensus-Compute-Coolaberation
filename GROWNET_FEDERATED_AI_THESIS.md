@@ -43,7 +43,7 @@ different answer.
 
 ## The Universal Attractor
 
-The T7 Engine operates as a universal attractor.
+The Engine operates as a universal attractor.
 
 Every problem class — combinatorial optimization, graph isomorphism,
 protein structure, cryptographic factorization, ML optimization — when
@@ -162,7 +162,7 @@ the signature.
 
 ```
 Infrastructure:
-├── T7 Engine           — universal compute attractor (7-state convergence)
+├── The Engine          — universal compute attractor (7-state convergence)
 ├── Routing stack       — per-node coordination layer (any x86 server)
 ├── GrowNet             — routing intelligence learner + publisher
 ├── Distributed ledger  — immutable routing update record
@@ -170,7 +170,7 @@ Infrastructure:
 
 Data flow:
   Node encounters problem
-  → T7 Engine routes to appropriate compute channel
+  → The Engine routes to appropriate compute channel
   → GrowNet observes routing signature and outcome
   → GrowNet publishes routing weight update (no data, no solution)
   → Ledger anchors update with timestamp + node identity
@@ -190,7 +190,7 @@ verifiably.
 Three things have aligned:
 
 **1. The engine exists and is running.**
-This is not a whitepaper. The T7 Engine is live, processing tens of millions
+This is not a whitepaper. The Engine is live, processing tens of millions
 of instances, converging at 99.8% fidelity. The universal attractor is real.
 
 **2. The node stack is deployable.**
@@ -214,7 +214,7 @@ Not a new research project. Not a whitepaper. Deployable now.
 > Federated learning fails because it tries to share what a model learned.
 > GrowNet succeeds because it shares how to route a problem.
 >
-> The T7 Engine is the universal attractor. Every problem collapses
+> The Engine is the universal attractor. Every problem collapses
 > into the same mathematical space. GrowNet learns and distributes
 > the routing map — architecture-agnostic, data-blind, ledger-verified.
 >
