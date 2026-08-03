@@ -48,11 +48,11 @@ The Engine operates as a universal attractor.
 Every problem class — combinatorial optimization, graph isomorphism,
 protein structure, cryptographic factorization, ML optimization — when
 expressed in the engine's mathematical framework, collapses into the same
-7-state convergence space.
+convergence space.
 
 This is not metaphor. This is architecture.
 
-The engine runs 7 convergence cycles. Every problem, regardless of origin,
+The engine runs convergence cycles. Every problem, regardless of origin,
 finds its solution path through one of the engine's compute channels.
 
 This means there exists a universal routing map:
@@ -162,7 +162,7 @@ the signature.
 
 ```
 Infrastructure:
-├── The Engine          — universal compute attractor (7-state convergence)
+├── The Engine          — universal compute attractor (convergence)
 ├── Routing stack       — per-node coordination layer (any x86 server)
 ├── GrowNet             — routing intelligence learner + publisher
 ├── Distributed ledger  — immutable routing update record
