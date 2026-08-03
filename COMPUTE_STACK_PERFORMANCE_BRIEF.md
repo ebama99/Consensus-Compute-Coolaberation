@@ -39,7 +39,7 @@ These three layers compound. Each amplifies the gains of the one below it.
 
 ## Measured Results — Two Live Production Systems
 
-### System 1: AI Compute Node (AMD Ryzen AI MAX+ 395 | 95.7GB Unified Memory)
+### System 1: AI Compute Node (GPU Node | High-Unified Memory)
 
 ```
 GPU COMPUTE — BEFORE vs AFTER:
@@ -60,7 +60,7 @@ GRAPH — GPU TFLOPS (higher = better):
   With:    |████████████████████████████████████████| 2.428 TFLOPS  ▲ +6%
 ```
 
-### System 2: Production Engine Server (Paperspace — T7 Engine + APIs + AI)
+### System 2: Production Engine Server
 
 ```
 CPU UTILIZATION — BEFORE vs AFTER:
@@ -93,7 +93,7 @@ GRAPH — CPU Under Load (lower = better):
 HALO NODE + ENGINE SERVER — COMBINED POWER PROFILE:
 
                     WITHOUT STACK    WITH STACK    REDUCTION
-  Halo (GPU node)       85.2W           54.1W        -36%
+  AI Node (GPU)       85.2W           54.1W        -36%
   Engine server         23.1W           18.1W        -22%
   ──────────────────────────────────────────────────────────
   COMBINED TOTAL        108.3W          72.2W        -33.3%
@@ -149,7 +149,7 @@ ENGINE CONSTANTS (from live engine state):
 
 COMPONENT 1 — UTILIZATION REDUCTION (OC Routing Stack)
   Measured live — both production systems:
-  Halo node:        85.2W → 54.1W   (-36.5%)
+  AI node:        85.2W → 54.1W   (-36.5%)
   Engine server:    23.1W → 18.1W   (-21.6%)
   Combined:        108.3W → 72.2W
 
@@ -334,10 +334,10 @@ RESPONSE LATENCY (measured — with stack):
 
 ```
   COMPATIBLE HARDWARE:
-  ├── AMD Ryzen AI MAX series    (tested — this document)
+  ├── AI compute nodes    (tested — this document)
   ├── Any x86-64 Linux server    (Intel or AMD)
   ├── NVIDIA DGX Spark           (x86-64 with CUDA)
-  ├── Cloud VMs                  (AWS, GCP, Azure, Paperspace)
+  ├── Cloud VMs (AWS, GCP, Azure, and equivalents)
   └── On-premise rack servers    (any x86-64)
 
   OPERATING SYSTEM:  Ubuntu 22.04+ (other Linux distros supported)
@@ -380,5 +380,5 @@ RESPONSE LATENCY (measured — with stack):
 ---
 
 *Measurements taken 2026-08-01 on live production systems*
-*AMD Ryzen AI MAX+ 395 (95.7GB unified) + Paperspace production server*
+*AI Compute Node (95.7GB unified memory) + production engine server*
 *All benchmarks reproducible on any x86-64 Linux system*
