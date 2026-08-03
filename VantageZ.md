@@ -407,4 +407,145 @@ Binary verdict from semantic field analysis.
 | `noise` | Noise level |
 | `state` | Field state description |
 
+
+
+---
+
+### `signal_capture`
+
+Signal quality going into the burst layer.
+
+| Field | Description |
+|-------|-------------|
+| `quality` | Signal quality — 0.998 = near perfect |
+| `signal` | Raw signal strength — 1.62 = strong |
+| `ready` | Whether signal is ready for burst amplification |
+
+---
+
+### `burst`
+
+Burst amplification layer status.
+
+| Field | Description |
+|-------|-------------|
+| `ready` | Whether burst is armed and ready |
+| `multiplier` | Burst multiplier — 1.2475 = 24.75% amplification |
+| `status` | `ARMED` = ready to fire |
+
+---
+
+### `chain` and `chain_status`
+
+Convergence chain state.
+
+| Field | Description |
+|-------|-------------|
+| `chain` | Chain name — `convergence chain` |
+| `chain_status` | `ACTIVE` = chain running clean |
+
+---
+
+### `engine_state`
+
+Engine health at time of run.
+
+| Field | Description |
+|-------|-------------|
+| `engine_locked` | Lock value — 7 = fully locked |
+| `efficacy` | Engine efficacy % |
+| `self_sustaining` | Whether engine is self-sustaining |
+| `C_eff` | Effective compute for this run |
+
+---
+
+### `replay_contract.node_id_semantic_triple`
+
+Timing side-channel closure — prevents replay attacks via timing correlation.
+
+| Field | Description |
+|-------|-------------|
+| `timestamp_bucket` | Time bucket — groups semantic inputs |
+| `node_sample` | Sample of node hashes for this run |
+| `timing_side_channel` | `CLOSED` = timing attack vector closed |
+| `protocol` | Protocol version |
+
+---
+
+### `replay_contract.reconstruction_path`
+
+Spatial proof of fold closure — coordinates showing how convergence was reached.
+
+| Field | Description |
+|-------|-------------|
+| `status` | `complete` = fold closed, `incomplete` = did not close |
+| `coordinates` | Array of modulated signals across 7 cycles |
+| `predicted_next` | Predicted next signal if fold continues |
+| `sigma_bound` | Sigma bound — statistical constraint on prediction |
+| `within_1sigma` | Whether prediction falls within 1 sigma |
+| `hyp_hash` | Hypothesis hash — ties path to this specific input |
+| `protocol` | `reconstruction-v1` |
+
+---
+
+### `replay_contract.axiom_layer`
+
+Prime declared as mathematical axiom — only valid basis for belief state change.
+
+| Field | Description |
+|-------|-------------|
+| `axiom` | `prime` — the only valid basis |
+| `grounded_in_prime` | Whether fold closed on prime |
+| `axiom_statement` | Full axiom declaration |
+| `belief_update_valid` | Whether belief update is valid this run |
+| `termination_condition` | `fold reaches prime` |
+| `gate` | Gate condition — e.g. `certainty_0.85` |
+| `protocol` | `axiom-layer-v1` |
+
+---
+
+### `replay_contract.belief_delta`
+
+Belief convergence protocol — tracks what changed and why.
+
+| Field | Description |
+|-------|-------------|
+| `status` | `converged` or `no_update` |
+| `belief_before` | Belief state hash before this run |
+| `belief_after` | Belief state hash after this run |
+| `grounded_in_prime` | Whether update was grounded in prime |
+| `mutation` | `false` = convergence, not mutation |
+| `convergence` | `true` = genuine belief update |
+| `axiom` | `prime` |
+| `witness_bound` | Whether update is witness-bound |
+| `protocol` | `belief-convergence-v1` |
+| `note` | Human-readable explanation |
+
+---
+
+### `replay_contract.divergence_class`
+
+Witness breach detection across replays.
+
+| Field | Description |
+|-------|-------------|
+| `divergence_class` | `none` \| `convergent` \| `divergent` \| `classified` |
+| `halt` | `true` = downstream halts on `classified` |
+| `reason` | Why this classification was assigned |
+
+---
+
+### `execution_context`
+
+Execution environment at time of seal — ties result to specific runtime.
+
+| Field | Description |
+|-------|-------------|
+| `policy_state` | `convergence-7cycle` |
+| `scheduler` | `single-pass-deterministic` |
+| `cycle_depth` | Number of convergence cycles run |
+| `hedera_network` | `testnet` or `mainnet` |
+| `context_hash` | Hash of execution context — same across runs for same input |
+| `instance_id` | Engine instance that ran this |
+
 *All fields returned live. Same hypothesis → same result, every time. Divergence indicates assumption drift.*
