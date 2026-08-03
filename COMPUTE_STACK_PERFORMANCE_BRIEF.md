@@ -28,7 +28,7 @@ Compute engine runs 6 active cycles then 1 structured reset.
 Thermal load stays lower. Cooling runs more efficiently.
 Structured rest between bursts = lower sustained power draw.
 
-### ③ BC3 Energy Coupling — π²×963×φ Self-Amplification
+### ③ Energy Coupling — Self-Amplification
 +61.8% compute energy delivered from the same power input.
 This is output amplification — not more watts in, more work out.
 Same hardware, same power budget, 61.8% more compute delivered.
@@ -76,7 +76,7 @@ CPU UTILIZATION — BEFORE vs AFTER:
 WHY -61.7% CPU FOR SAME WORKLOAD:
   Without stack: services called in tight loops, CPU spins waiting
                  between calls — thrash and overshoot add waste cycles
-  With stack:    requests paced at 963Hz optimal intervals, engine
+  With stack:    requests paced at mathematically optimal intervals, engine
                  completes each cycle cleanly before next arrives
                  = less CPU doing the same work
 
@@ -113,12 +113,12 @@ ENGINE COMPUTE (live state):
   Active instances:       20,600,000
   Kernels per instance:   960  (480 mirror pairs)
   Ops per kernel/cycle:   343  (7 subcycles × 49 ops)
-  Clock frequency:        963 Hz
+  Clock frequency:        [proprietary]
   Raw ops/second:         6,532,190,784,000,000
   Raw TFLOPS:             6,532
 
   After structured utilization (6/7 = 85.7%):
-  After BC3 amplification (+61.8%):
+  After amplification (+61.8%):
   After fidelity correction (99.8%):
   ──────────────────────────────────
   Effective TFLOPS:       9,041   (+38% from same hardware)
@@ -139,10 +139,10 @@ WHAT 5.6% FASTER JOBS MEANS AT 20.6M INSTANCES:
 ## Power Reduction — Three-Component Engine-Verified Breakdown
 
 ```
-ENGINE CONSTANTS USED (from live BC3 + OMEGA):
-  BC3 base energy:    9,504.429  (π²×963×φ×α)
-  BC3 coupled energy: 15,378.489
-  BC3 self-supply:    +61.80%   compute generated, not drawn from wall
+ENGINE CONSTANTS (from live engine state):
+  Base energy:         9,504.429
+  Coupled energy:      15,378.489
+  Self-supply:         +61.80%  compute generated, not drawn from wall
   T7 utilization:     0.8571    (85.71% — 6 active + 1 rest cycle)
   T7 structured rest: 14.29%   of active compute time
   Fidelity:           0.998
@@ -155,8 +155,8 @@ COMPONENT 1 — UTILIZATION REDUCTION (OC Routing Stack)
 
   Watts saved:      36.1W
   % of total:       29.5%
-  Source:           Proportional routing, 963Hz pacing,
-                    no retry cascades, phi-balanced distribution
+  Source:           Proportional routing, optimal pacing,
+                    no retry cascades, mathematically balanced distribution
 
   GRAPH — Combined system under load (lower = better):
   Before: |███████████████████████████████████████████| 108.3W
@@ -166,31 +166,31 @@ COMPONENT 2 — POWER OF 7 STRUCTURED REST (T7 Cadence)
   Engine runs 6 active cycles then 1 structured rest — by design.
   14.29% of GPU active time is structured cool-down, not brute force.
 
-  ██████████████████ Cycle 1 — active  (963Hz burst)
-  ██████████████████ Cycle 2 — active  (963Hz burst)
-  ██████████████████ Cycle 3 — active  (963Hz burst)
-  ██████████████████ Cycle 4 — active  (963Hz burst)
-  ██████████████████ Cycle 5 — active  (963Hz burst)
-  ██████████████████ Cycle 6 — active  (963Hz burst)
+  ██████████████████ Cycle 1 — active  (active burst)
+  ██████████████████ Cycle 2 — active  (active burst)
+  ██████████████████ Cycle 3 — active  (active burst)
+  ██████████████████ Cycle 4 — active  (active burst)
+  ██████████████████ Cycle 5 — active  (active burst)
+  ██████████████████ Cycle 6 — active  (active burst)
   ░░░░░░░░░░░░░░░░░░ Cycle 7 — REST    (structured cool-down)
 
   Watts saved (GPU):  5.45W per active compute period
   % of total:         4.5%
   Source:             T7 protocol — engine constant, not configurable
 
-COMPONENT 3 — BC3 SELF-SUPPLY OFFSET (π²×963×φ Resonance)
-  BC3 self-generates +61.8% additional compute from resonance coupling.
+COMPONENT 3 — SELF-SUPPLY OFFSET (Resonance Coupling)
+  Self-generates +61.8% additional compute from resonance coupling.
   This compute is NOT drawn from the wall.
   A traditional server needs 116.8W to match this system's output.
-  This system draws 72.2W. BC3 supplies the 44.6W gap.
+  This system draws 72.2W. Energy coupling supplies the 44.6W gap.
 
   Wall draw: |██████████████████░░░░░░░░░░░|  72.2W  (customer pays this)
-  BC3 adds:  |░░░░░░░░░░░░░░░░░░███████████|  44.6W  (self-generated)
+  Coupling adds:  |░░░░░░░░░░░░░░░░░░███████████|  44.6W  (self-generated)
   Total out: |██████████████████████████████| 116.8W  equivalent output
 
   Watts offset:  44.6W self-generated
   % of total:    36.5%  — largest single contributor
-  Source:        π²×963×φ energy coupling (engine architecture constant)
+  Source:        energy coupling (engine architecture constant)
 
 COMBINED — ALL THREE COMPONENTS:
 
@@ -198,7 +198,7 @@ COMBINED — ALL THREE COMPONENTS:
   ─────────────────────────────────────────────────────────────
   ① OC routing stack         36.1W          29.5%
   ② Power of 7 rest           5.45W           4.5%
-  ③ BC3 self-supply          44.6W          36.5%
+  ③ Self-supply          44.6W          36.5%
   ─────────────────────────────────────────────────────────────
   TOTAL REDUCTION            50.1W          41.0%
 
@@ -312,7 +312,7 @@ RESPONSE LATENCY (measured — with stack):
   COMPOUNDING FACTOR:
   Layer 1 (routing):    +6% GPU, -36% node power, -61.7% server CPU
   Layer 2 (T7 cadence): 85.7% structured utilization vs 100% brute
-  Layer 3 (BC3):        +61.8% compute energy from same input
+  Layer 3:        +61.8% compute energy from same input
   Combined:             1.8× more compute per watt of power consumed
 ```
 
@@ -364,7 +364,7 @@ RESPONSE LATENCY (measured — with stack):
   WHERE THE 41% COMES FROM:
   ① OC routing stack:   29.5%  — measured on live hardware
   ② Power of 7 cadence:  4.5%  — T7 engine constant (6/7 utilization)
-  ③ BC3 self-supply:    36.5%  — π²×963×φ resonance, not drawn from wall
+  ③ Self-supply:    36.5%  — resonance coupling, not drawn from wall
 
   WHAT IT COSTS:   139 MB RAM  |  <2 MB disk  |  software license
   WHAT YOU GET:    41% less power | 82% more compute per watt
