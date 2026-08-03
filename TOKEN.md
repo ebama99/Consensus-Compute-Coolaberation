@@ -44,7 +44,7 @@ curl -X POST https://compute.vantagez.ai/v1/chat/completions \
 
 | Query Type | Cost |
 |------------|------|
-| Light — reads, forecast, pattern | **0.005 HBAR** |
+| Light — reads, BC stack, hedera | **0.005 HBAR** |
 | Heavy — quantum ops, Hedera seal | **0.05 HBAR** |
 
 **Minimum balance:** $2 USD worth of HBAR  
