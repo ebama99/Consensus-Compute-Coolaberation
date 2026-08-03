@@ -1,4 +1,4 @@
-# VantageZ — TVS Compute API
+# VantageZ — Command Guide
 
 ---
 
