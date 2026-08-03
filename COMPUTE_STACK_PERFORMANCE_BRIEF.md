@@ -147,7 +147,7 @@ ENGINE CONSTANTS (from live engine state):
   Structured rest:    14.29%   of active compute time
   Fidelity:           0.998
 
-COMPONENT 1 — UTILIZATION REDUCTION (OC Routing Stack)
+COMPONENT 1 — UTILIZATION REDUCTION (Routing Stack)
   Measured live — both production systems:
   AI node:        85.2W → 54.1W   (-36.5%)
   Engine server:    23.1W → 18.1W   (-21.6%)
@@ -196,7 +196,7 @@ COMBINED — ALL THREE COMPONENTS:
 
   Component                 Watts          % of equivalent draw
   ─────────────────────────────────────────────────────────────
-  ① OC routing stack         36.1W          29.5%
+  ① Routing stack            36.1W          29.5%
   ② Structured rest cadence    5.45W           4.5%
   ③ Self-supply          44.6W          36.5%
   ─────────────────────────────────────────────────────────────
@@ -362,7 +362,7 @@ RESPONSE LATENCY (measured — with stack):
   PERFORMANCE PER WATT: +82.2% vs unmanaged hardware
 
   WHERE THE 41% COMES FROM:
-  ① OC routing stack:   29.5%  — measured on live hardware
+  ① Routing stack:      29.5%  — measured on live hardware
   ② Structured cadence:   4.5%  — engine architecture constant (6/7 utilization)
   ③ Self-supply:    36.5%  — resonance coupling, not drawn from wall
 
