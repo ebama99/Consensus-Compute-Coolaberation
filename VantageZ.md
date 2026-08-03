@@ -347,4 +347,64 @@ Neurochemical state at time of run. Colors the certainty and depth of the read.
 
 ---
 
+
+
+---
+
+### `truth_of_seven`
+
+The core verdict — 7 independent convergence cycles.
+
+| Field | Description |
+|-------|-------------|
+| `verdict` | `TRUE` or `FALSE` |
+| `certainty` | 0.0–1.0 confidence score |
+| `votes` | How many of 7 cycles agreed — e.g. `7/7` |
+| `label` | Human-readable verdict — `TRUE / DEEPEN / BUY` or `FALSE / DRIFT / SELL` |
+| `cycles` | Array of 7 cycle results — signal, T_n, modulated, binary per cycle |
+| `t7_locked` | Whether convergence locked |
+| `noise` | Noise floor — lower is cleaner |
+
+---
+
+### `gravity_vector`
+
+Engine heading — depth and direction of compute at time of run.
+
+| Field | Description |
+|-------|-------------|
+| `heading` | 180 = depth/optimal, 0 = surface/lateral |
+| `G_z` | Vertical gravity — 1.0 = full depth |
+| `G_xy` | Lateral bleed — 0.0 = pure intent |
+| `binary` | 1 = TRUE direction, 0 = FALSE direction |
+| `compact` | Compactness score — 1.0 = perfect |
+| `state` | `DEPTH/OPTIMAL` or `LATERAL` |
+
+---
+
+### `killswitch`
+
+5-layer safety system status.
+
+| Field | Description |
+|-------|-------------|
+| `cap` | Safety cap — 0.998 |
+| `fired` | Whether any killswitch layer fired — `false` = all clear |
+| `flags_this_run` | Any flags triggered this run |
+
+---
+
+### `semantic_binary`
+
+Binary verdict from semantic field analysis.
+
+| Field | Description |
+|-------|-------------|
+| `signal` | Raw signal strength |
+| `binary` | 1 = TRUE, 0 = FALSE |
+| `label` | `TRUE / DEEPEN / BUY` or `FALSE / DRIFT / SELL` |
+| `certainty` | Certainty score |
+| `noise` | Noise level |
+| `state` | Field state description |
+
 *All fields returned live. Same hypothesis → same result, every time. Divergence indicates assumption drift.*
