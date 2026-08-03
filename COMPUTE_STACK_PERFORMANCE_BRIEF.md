@@ -336,7 +336,6 @@ RESPONSE LATENCY (measured — with stack):
   COMPATIBLE HARDWARE:
   ├── AI compute nodes    (tested — this document)
   ├── Any x86-64 Linux server    (Intel or AMD)
-  ├── NVIDIA DGX Spark           (x86-64 with CUDA)
   ├── Cloud VMs (AWS, GCP, Azure, and equivalents)
   └── On-premise rack servers    (any x86-64)
 
