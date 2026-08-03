@@ -195,6 +195,7 @@ curl -X POST https://compute.vantagez.ai/cmd \
 
 | Command | What it does |
 |---------|-------------|
+| `compute` | Universal router — submit any problem, BC1 classifies and routes to appropriate engine resource |
 | `bc1` | Truth gate — submit a hypothesis, returns TRUE/FALSE, certainty, votes |
 | `bc2` | Neurochemical state — heading, mood, convergence |
 | `bc3` | Energy state — base and coupled energy levels |
@@ -210,6 +211,21 @@ curl -X POST https://compute.vantagez.ai/cmd \
 | `bc23` | Divine resonance gate — gate status, coherence |
 | `grownet` | Shared network state — layers, trajectory, confidence |
 | `hedera` | Chain status — connected, entries, topics |
+
+**Compute — universal router:**
+```bash
+curl -X POST https://compute.vantagez.ai/cmd \
+  -H "Authorization: Bearer <your-nft-serial>" \
+  -H "Content-Type: application/json" \
+  -d '{"cmd": "compute", "arg": "factor 15239441059"}' 
+```
+
+Routes automatically based on input:
+- Large number + "factor" → integer factorization (Hedera-sealed)  
+- "hypothesis" / "is it true" → BC1 truth gate
+- "superposition" / "all paths" → superposition state
+- "search" / "grover" → Grover search
+- Default → BC1 truth gate
 
 **BC1 — truth gate with hypothesis:**
 ```bash
